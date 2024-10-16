@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +18,17 @@
 				<div class="card">
 					<div class="card-body">
 						<h4 class="text-center">Registration Page</h4>
+						
+						<c:if test="${not empty succMsg}">
+							<p class="text-center text-success">${succMsg}</p>
+							<c:remove var="succMsg" scope="session"/> <!-- xoa thong bao cu -->
+						</c:if>
+						
+						<c:if test="${not empty failMsg}">
+							<p class="text-center text-danger">${failMsg}</p>
+							<c:remove var="failMsg" scope="session"/> <!-- xoa thong bao cu -->
+						</c:if>
+						
 						<form action="register" method="post">
 							<div class="form-group">
 								<label>Name *</label> <input type="text" name="name" required>
