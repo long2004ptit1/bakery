@@ -398,7 +398,7 @@
 
         // Khi click vào menu-icon
         menuIcon.onclick = () => {
-            navbar.classList.toggle('active'); // Thêm hoặc bỏ class 'active' khi click vào icon
+            navbar.classList.toggle('active');
         };
     });
 
