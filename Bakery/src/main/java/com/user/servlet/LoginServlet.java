@@ -1,7 +1,6 @@
 package com.user.servlet;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,37 +13,33 @@ import com.entity.User;
 import com.DAO.UserDAOIpml;
 
 @WebServlet("/login")
-
 public class LoginServlet extends HttpServlet {
-
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			UserDAOIpml dao = new UserDAOIpml(DBConnect.getConn());
-
+			
 			HttpSession session = req.getSession();
+			session.removeAttribute("userobj"); // Xóa thông tin người dùng cũ
 			String email = req.getParameter("email");
 			String password = req.getParameter("password");
-
+			
 			if ("admin@gmail.com".equals(email) && "admin".equals(password)) {
 				User us = new User();
 				session.setAttribute("userobj", us);
 				resp.sendRedirect("admin/home.jsp");
 			} else {
-
 				User us = dao.login(email, password);
 				if (us != null) {
 					session.setAttribute("userobj", us);
 					resp.sendRedirect("home.jsp");
 				} else {
-					session.setAttribute("failMsg", "Email and Password Invalid");
+					session.setAttribute("failMsg", "Tên đăng nhập hoặc mật khẩu không chính xác");
 					resp.sendRedirect("login.jsp");
 				}
-				resp.sendRedirect("login.jsp");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-
 }
