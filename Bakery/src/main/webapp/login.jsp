@@ -138,7 +138,30 @@ button:hover {
 </head>
 <body>
   <div class="wrapper">
-    <form action="#">
+
+  <% 
+    String errorMsg = (String) session.getAttribute("errorMsg");
+    String successMsg = (String) session.getAttribute("successMsg");
+    if (errorMsg != null) {
+%>
+    <div style="color: red; margin-bottom: 15px;"><%= errorMsg %></div>
+<% 
+        session.removeAttribute("errorMsg"); 
+    } else if (successMsg != null) { 
+%>
+    <div style="color: green; margin-bottom: 15px;"><%= successMsg %></div>
+    <script>
+        setTimeout(function() {
+            window.location.href = "<%= request.getContextPath() %>/home.jsp";
+        }, 3000); // Chuyển hướng sau 3 giây
+    </script>
+<%
+        session.removeAttribute("successMsg"); 
+    }
+%>
+  
+    <form action="/Bakery/login" method="POST">
+
       <h2>Đăng nhập</h2>
       <div class="input-field">
         <input type="text" name="username" required>
@@ -160,8 +183,13 @@ button:hover {
       <div class="register">
         <p>Bạn chưa có tài khoản? <a href="register.jsp">Đăng ký</a></p>
       </div>
+      <!-- Biểu tượng Trở về -->
+    <a href="index.jsp" class="back-icon">
+      <i class="fas fa-arrow-left"></i> Trở về trang chủ
+    </a>
     </form>
   </div>
+  
   <script>
     document.getElementById("toggle-password").addEventListener("click", function () {
       var passwordField = document.getElementById("password");

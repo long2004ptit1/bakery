@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -117,14 +116,43 @@ button:hover {
   margin-top: 30px;
   color: black;
 }
+.message {
+  color: red;
+  margin-bottom: 15px;
+}
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <form action="#">
+    <!-- Thông báo lỗi hoặc thành công -->
+    <% 
+    String errorMsg = (String) session.getAttribute("errorMsg");
+    String successMsg = (String) session.getAttribute("successMsg");
+    if (errorMsg != null) {
+%>
+    <div style="color: red; margin-bottom: 15px;"><%= errorMsg %></div>
+<% 
+        session.removeAttribute("errorMsg"); 
+    } else if (successMsg != null) { 
+%>
+    <div style="color: green; margin-bottom: 15px;"><%= successMsg %></div>
+    <script>
+        setTimeout(function() {
+            window.location.href = "<%= request.getContextPath() %>/login.jsp";
+        }, 3000); // Chuyển hướng sau 3 giây
+    </script>
+<%
+        session.removeAttribute("successMsg"); 
+    }
+%>
+
+    <!-- Form đăng ký -->
+    <form action="/Bakery/register" method="POST">
+
+
       <h2>Đăng ký</h2>
       <div class="input-field">
-        <input type="text" name="name" required >
+        <input type="text" name="name" required>
         <label>Họ tên</label>
       </div>
       <div class="input-field">
@@ -149,6 +177,10 @@ button:hover {
       <div class="register">
         <p>Bạn đã có tài khoản? <a href="login.jsp">Đăng nhập</a></p>
       </div>
+      <!-- Biểu tượng Trở về -->
+    <a href="index.jsp" class="back-icon">
+      <i class="fas fa-arrow-left"></i> Trở về trang chủ
+    </a>
     </form>
   </div>
   <script>
@@ -158,11 +190,11 @@ button:hover {
       if (passwordField.type === "password") {
         passwordField.type = "text";
         icon.classList.remove("fa-eye");
-        icon.classList.add("fa-eye-slash"); // Change to eye-slash when password is visible
+        icon.classList.add("fa-eye-slash");
       } else {
         passwordField.type = "password";
         icon.classList.remove("fa-eye-slash");
-        icon.classList.add("fa-eye"); // Change back to eye when password is hidden
+        icon.classList.add("fa-eye");
       }
     });
     
@@ -172,11 +204,11 @@ button:hover {
       if (confirmPasswordField.type === "password") {
         confirmPasswordField.type = "text";
         icon.classList.remove("fa-eye");
-        icon.classList.add("fa-eye-slash"); // Change to eye-slash when confirm password is visible
+        icon.classList.add("fa-eye-slash");
       } else {
         confirmPasswordField.type = "password";
         icon.classList.remove("fa-eye-slash");
-        icon.classList.add("fa-eye"); // Change back to eye when confirm password is hidden
+        icon.classList.add("fa-eye");
       }
     });
   </script>
