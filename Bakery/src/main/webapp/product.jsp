@@ -19,6 +19,7 @@
 <link rel="stylesheet"
 	href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <style>
 /* Profile Section */
 .navbar.profile {
@@ -123,20 +124,20 @@
 		<div class="bx bx-menu" id="menu-icon"></div>
 		<!-- Nav List -->
 		<ul class="navbar">
-			<li><a href="snowbakery.html#home" class="home-active">Trang
+			<li><a href="home.jsp#home" class="home-active">Trang
 					chủ</a></li>
-			<li><a href="snowbakery.html#categories">Danh mục</a></li>
+			<li><a href="home.jsp#categories">Danh mục</a></li>
 			<li><a href="#products">Sản phẩm</a></li>
-			<li><a href="snowbakery.html#about">Chúng tôi</a></li>
-			<li><a href="snowbakery.html#customers">Khách hàng</a></li>
+			<li><a href="home.jsp#about">Chúng tôi</a></li>
+			<li><a href="home.jsp#customers">Khách hàng</a></li>
 		</ul>
 		<%-- Kiểm tra nếu người dùng đã đăng nhập --%>
 		<div class="profile">
 			<c:if test="${not empty userobj}">
 				<ul class="navbar profile">
-					<li><a href="cart.jsp"><i class='bx bx-cart'></i></a></li>
+					<li><a href="cart.jsp"><i class="fas fa-shopping-cart"></i></a></li>
 					<!-- Icon Giỏ hàng -->
-					<li><a href="messages.jsp"><i class='bx bx-envelope'></i></a></li>
+					<li><a href="messages.jsp"><i class="fas fa-solid fa-bell"></i></a></li>
 					<!-- Icon Hộp thư -->
 					<li class="dropdown"><a href="#" class="username">${userobj.name}</a>
 						<div class="dropdown-menu">
@@ -171,7 +172,7 @@
 						<img src="img/product-xmas-cake1.webp" alt="">
 						<h3>Bánh Quả thông Noel</h3>
 						<h4 class="price">230.000VNĐ</h4>
-						<a href="product-detail.html"> <i
+						<a href="product-detail.jsp"> <i
 							class='bx bx-cart-alt cart-icon'></i>
 						</a> <i class='bx bx-heart heart-icon'></i>
 					</div>
@@ -183,7 +184,7 @@
 						<h4 class="price">
 							200.000VNĐ <span>/ 6 bánh</span>
 						</h4>
-						<a href="product-detail.html"> <i
+						<a href="product-detail.jsp"> <i
 							class='bx bx-cart-alt cart-icon'></i>
 						</a> <i class='bx bx-heart heart-icon'></i>
 					</div>
@@ -193,7 +194,7 @@
 							Bánh tuần lộc <br> Caramel
 						</h3>
 						<h4 class="price">280.000VNĐ</h4>
-						<a href="product-detail.html"> <i
+						<a href="product-detail.jsp"> <i
 							class='bx bx-cart-alt cart-icon'></i>
 						</a> <i class='bx bx-heart heart-icon'></i>
 					</div>
@@ -203,7 +204,7 @@
 							Ngôi nhà Gừng <br> Xmas
 						</h3>
 						<h4 class="price">500.000VNĐ</h4>
-						<a href="product-detail.html"> <i
+						<a href="product-detail.jsp"> <i
 							class='bx bx-cart-alt cart-icon'></i>
 						</a> <i class='bx bx-heart heart-icon'></i>
 					</div>
@@ -215,7 +216,7 @@
 						<h4 class="price">
 							30.000VNĐ <span>/ 1 cupcake</span>
 						</h4>
-						<a href="product-detail.html"> <i
+						<a href="product-detail.jsp"> <i
 							class='bx bx-cart-alt cart-icon'></i>
 						</a> <i class='bx bx-heart heart-icon'></i>
 					</div>
@@ -226,7 +227,7 @@
 							Bánh sinh nhật <br> Noel
 						</h3>
 						<h4 class="price">300.000VNĐ</h4>
-						<a href="product-detail.html"> <i
+						<a href="product-detail.jsp"> <i
 							class='bx bx-cart-alt cart-icon'></i>
 						</a> <i class='bx bx-heart heart-icon'></i>
 					</div>
@@ -237,7 +238,7 @@
 						<h4 class="price">
 							250.000VNĐ <span>/ box</span>
 						</h4>
-						<a href="product-detail.html"> <i
+						<a href="product-detail.jsp"> <i
 							class='bx bx-cart-alt cart-icon'></i>
 						</a> <i class='bx bx-heart heart-icon'></i>
 					</div>
@@ -247,7 +248,7 @@
 						<h4 class="price">
 							130.000VNĐ <span>/ 4 cookies</span>
 						</h4>
-						<a href="product-detail.html"> <i
+						<a href="product-detail.jsp"> <i
 							class='bx bx-cart-alt cart-icon'></i>
 						</a> <i class='bx bx-heart heart-icon'></i>
 					</div>
@@ -255,7 +256,7 @@
 						<img src="img/product-xmas-cake9.jpg" alt="Bánh xoài Tiny">
 						<h3>Bánh bông lan Gỗ Giáng sinh</h3>
 						<h4 class="price">130.000VNĐ</h4>
-						<a href="product-detail.html"> <i
+						<a href="product-detail.jsp"> <i
 							class='bx bx-cart-alt cart-icon'></i>
 						</a> <i class='bx bx-heart heart-icon'></i>
 					</div>

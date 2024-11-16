@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="product-detail.css">
     <!-- box Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
 /* Profile Section */
 .navbar.profile {
@@ -119,11 +119,11 @@
         </div>        
         <div class="bx bx-menu" id="menu-icon"></div>
         <ul class="navbar">
-            <li><a href="snowbakery.html#home" class="home-active">Trang chủ</a></li>
-            <li><a href="snowbakery.html#categories">Danh mục</a></li>
+            <li><a href="home.jsp#home" class="home-active">Trang chủ</a></li>
+            <li><a href="home.jsp#categories">Danh mục</a></li>
             <li><a href="#products">Sản phẩm</a></li>
-            <li><a href="snowbakery.html#about">Chúng tôi</a></li>
-            <li><a href="snowbakery.html#customers">Khách hàng</a></li>
+            <li><a href="home.jsp#about">Chúng tôi</a></li>
+            <li><a href="home.jsp#customers">Khách hàng</a></li>
         </ul>
        
        
@@ -131,9 +131,9 @@
 		<div class="profile">
 			<c:if test="${not empty userobj}">
 				<ul class="navbar profile">
-					<li><a href="cart.jsp"><i class='bx bx-cart'></i></a></li>
+					<li><a href="cart.jsp"><i class="fas fa-shopping-cart"></i></a></li>
 					<!-- Icon Giỏ hàng -->
-					<li><a href="messages.jsp"><i class='bx bx-envelope'></i></a></li>
+					<li><a href="messages.jsp"><i class="fas fa-solid fa-bell"></i></a></li>
 					<!-- Icon Hộp thư -->
 					   <li class="dropdown">
                 <a href="#" class="username">${userobj.name}</a>

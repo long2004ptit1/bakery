@@ -18,6 +18,8 @@
 <!--Link Swiper Css-->
 <link rel="stylesheet"
 	href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <style>
 /* Profile Section */
 .navbar.profile {
@@ -131,9 +133,9 @@
 		<div class="profile">
 			<c:if test="${not empty userobj}">
 				<ul class="navbar profile">
-					<li><a href="cart.jsp"><i class='bx bx-cart'></i></a></li>
+					<li><a href="cart.jsp"><i class="fas fa-shopping-cart"></i></a></li>
 					<!-- Icon Giỏ hàng -->
-					<li><a href="messages.jsp"><i class='bx bx-envelope'></i></a></li>
+					<li><a href="messages.jsp"><i class="fas fa-solid fa-bell"></i></a></li>
 					<!-- Icon Hộp thư -->
 					   <li class="dropdown">
                 <a href="#" class="username">${userobj.name}</a>
@@ -271,44 +273,54 @@
 	</section>
 
 	<!-- Categories Danh mục -->
-	<section class="categories" id="categories">
-		<div class="heading">
-			<h1>
-				Menu <br>
-				<span>Danh sách các loại sản phẩm</span>
-			</h1>
-			<a href="product.jsp" class="btn" target="_blank">Xem thêm<i
-				class='bx bx-right-arrow-alt'></i></a>
-		</div>
-		<div class="categories-container">
-			<div class="box box1">
-				<img src="img/catechristmas.png" alt="">
-				<h2 class="christmas">Christmas</h2>
-				<span class="christmas">22 Items</span> <i
-					class='bx bx-right-arrow-alt'></i>
-			</div>
-			<div class="box box2">
-				<img src="img/catebread.png" alt="">
-				<h2>Bread</h2>
-				<span>22 Items</span> <i class='bx bx-right-arrow-alt'></i>
-			</div>
-			<div class="box box3">
-				<img src="img/catepastry.png" alt="">
-				<h2>Pastry & Pie</h2>
-				<span>22 Items</span> <i class='bx bx-right-arrow-alt'></i>
-			</div>
-			<div class="box box4">
-				<img src="img/catebingsu.png" alt="">
-				<h2>Bingsu</h2>
-				<span>22 Items</span> <i class='bx bx-right-arrow-alt'></i>
-			</div>
-			<div class="box box5">
-				<img src="img/catecake.png" alt="">
-				<h2>Cake</h2>
-				<span>5 Items</span> <i class='bx bx-right-arrow-alt'></i>
-			</div>
-		</div>
-	</section>
+    
+    <section class="categories" id="categories">
+        <div class="heading">
+            <h1>Menu <br><span>Danh sách các loại sản phẩm</span></h1>
+            <a href="product.jsp" class="btn" target="_blank">Xem thêm<i class='bx bx-right-arrow-alt'></i></a>
+        </div>
+        <div class="categories-container">
+            <div class="box box1">
+                <img src="img/catechristmas.png" alt="">
+                <h2 class="christmas">Christmas</h2>
+                <span class="christmas">12 Items</span>
+                <a href="product.jsp#christmas-cake">
+                    <i class='bx bx-right-arrow-alt'></i>
+                </a>
+            </div>
+            <div class="box box2">
+                <img src="img/catebread.png" alt="">
+                <h2>Bánh mì</h2>
+                <span>5 Items</span>
+                <a href="product.jsp#bread">
+                    <i class='bx bx-right-arrow-alt'></i>
+                </a>
+            </div>
+            <div class="box box3">
+                <img src="img/catepastry.png" alt="">
+                <h2>Bánh ngọt</h2>
+                <span>12 Items</span>
+                <a href="product.jsp#pastry">
+                    <i class='bx bx-right-arrow-alt'></i>
+                </a>
+            </div>
+            <div class="box box4">
+                <img src="img/catebingsu.png" alt="">
+                <h2>Bingsu</h2>
+                <span>5 Items</span>
+                <a href="product.jsp#bingsu">
+                    <i class='bx bx-right-arrow-alt'></i>
+                </a>
+            </div>
+            <div class="box box5">
+                <img src="img/catecake.png" alt="">
+                <h2>Bánh sinh nhật</h2>
+                <span>10 Items</span>
+                <a href="product.jsp#birthdaycake">
+                    <i class='bx bx-right-arrow-alt'></i>
+                </a>
+            </div>
+        </div>
 	<!-- Products -->
 	<section class="products" id="products">
 		<div class="heading">

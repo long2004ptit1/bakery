@@ -11,7 +11,7 @@ body {
     scroll-padding-top: 2rem;
     scroll-behavior: smooth;
 
-    background: url('/Bakery/img/pic-bgr.png') no-repeat center center;
+    background: url('/Bakery/img/bgproduct.png') no-repeat center center;
     background-size: cover; /* Ensures the image covers the entire page */
     background-attachment: fixed; /* Keeps the background fixed during scrolling */
     color: var(--text-color);

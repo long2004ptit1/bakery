@@ -172,6 +172,7 @@
     </section>
      
     <!-- Categories Danh mục -->
+    
     <section class="categories" id="categories">
         <div class="heading">
             <h1>Menu <br><span>Danh sách các loại sản phẩm</span></h1>
@@ -181,32 +182,42 @@
             <div class="box box1">
                 <img src="img/catechristmas.png" alt="">
                 <h2 class="christmas">Christmas</h2>
-                <span class="christmas">22 Items</span>
-                <i class='bx bx-right-arrow-alt'></i>
+                <span class="christmas">12 Items</span>
+                <a href="product.jsp#christmas-cake">
+                    <i class='bx bx-right-arrow-alt'></i>
+                </a>
             </div>
             <div class="box box2">
                 <img src="img/catebread.png" alt="">
-                <h2>Bread</h2>
-                <span>22 Items</span>
-                <i class='bx bx-right-arrow-alt'></i>
+                <h2>Bánh mì</h2>
+                <span>5 Items</span>
+                <a href="product.jsp#bread">
+                    <i class='bx bx-right-arrow-alt'></i>
+                </a>
             </div>
             <div class="box box3">
                 <img src="img/catepastry.png" alt="">
-                <h2>Pastry & Pie</h2>
-                <span>22 Items</span>
-                <i class='bx bx-right-arrow-alt'></i>
+                <h2>Bánh ngọt</h2>
+                <span>12 Items</span>
+                <a href="product.jsp#pastry">
+                    <i class='bx bx-right-arrow-alt'></i>
+                </a>
             </div>
             <div class="box box4">
                 <img src="img/catebingsu.png" alt="">
                 <h2>Bingsu</h2>
-                <span>22 Items</span>
-                <i class='bx bx-right-arrow-alt'></i>
+                <span>5 Items</span>
+                <a href="product.jsp#bingsu">
+                    <i class='bx bx-right-arrow-alt'></i>
+                </a>
             </div>
             <div class="box box5">
                 <img src="img/catecake.png" alt="">
-                <h2>Cake</h2>
-                <span>5 Items</span>
-                <i class='bx bx-right-arrow-alt'></i>
+                <h2>Bánh sinh nhật</h2>
+                <span>10 Items</span>
+                <a href="product.jsp#birthdaycake">
+                    <i class='bx bx-right-arrow-alt'></i>
+                </a>
             </div>
         </div>
     </section>
@@ -214,7 +225,7 @@
     <section class="products" id="products">
         <div class="heading">
             <h1>Most popular products<br><span>Những sản phẩm được yêu thích nhất</span></h1>
-            <a href="#" class="btn">Xem thêm<i class='bx bx-right-arrow-alt'></i></a>
+            <a href="product.jsp" class="btn">Xem thêm<i class='bx bx-right-arrow-alt'></i></a>
         </div>
         <!-- Product Content -->
         <div class="products-container">
@@ -398,7 +409,7 @@
 
         // Khi click vào menu-icon
         menuIcon.onclick = () => {
-            navbar.classList.toggle('active');
+            navbar.classList.toggle('active'); // Thêm hoặc bỏ class 'active' khi click vào icon
         };
     });
 
@@ -437,6 +448,11 @@
             },
         });
     });
+
+   
+
+
+
 
     </script>
 </body>
