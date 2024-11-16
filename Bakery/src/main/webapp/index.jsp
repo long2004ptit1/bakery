@@ -175,7 +175,7 @@
     <section class="categories" id="categories">
         <div class="heading">
             <h1>Menu <br><span>Danh sách các loại sản phẩm</span></h1>
-            <a href="product.html" class="btn" target="_blank">Xem thêm<i class='bx bx-right-arrow-alt'></i></a>
+            <a href="product.jsp" class="btn" target="_blank">Xem thêm<i class='bx bx-right-arrow-alt'></i></a>
         </div>
         <div class="categories-container">
             <div class="box box1">

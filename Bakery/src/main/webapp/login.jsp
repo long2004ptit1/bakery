@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -139,28 +141,15 @@ button:hover {
 <body>
   <div class="wrapper">
 
-  <% 
-    String errorMsg = (String) session.getAttribute("errorMsg");
-    String successMsg = (String) session.getAttribute("successMsg");
-    if (errorMsg != null) {
-%>
-    <div style="color: red; margin-bottom: 15px;"><%= errorMsg %></div>
-<% 
-        session.removeAttribute("errorMsg"); 
-    } else if (successMsg != null) { 
-%>
-    <div style="color: green; margin-bottom: 15px;"><%= successMsg %></div>
-    <script>
-        setTimeout(function() {
-            window.location.href = "<%= request.getContextPath() %>/home.jsp";
-        }, 3000); // Chuyển hướng sau 3 giây
-    </script>
-<%
-        session.removeAttribute("successMsg"); 
-    }
-%>
+  <c:if test="${not empty failMsg}">
+				<h1 style="color:red;
+				font-size:15px;
+    text-align: center;
+    font-weight: bold; ">${failMsg}</h1>
+				<c:remove var="failMsg" scope="session"/>
+				</c:if>
   
-    <form action="/Bakery/login" method="POST">
+    <form action="login" method="POST">
 
       <h2>Đăng nhập</h2>
       <div class="input-field">

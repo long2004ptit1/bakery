@@ -1,6 +1,7 @@
 package com.user.servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,41 +9,42 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.DAO.UserDAO;
-import com.DAO.UserDAOIpml;
+import com.DAO.UserDAOImpl;
 import com.DB.DBConnect;
 import com.entity.User;
-
 @WebServlet("/login")
-public class LoginServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+public class LoginServlet extends HttpServlet{
+	//source->override->doPost
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		try {
+			UserDAOImpl dao=new UserDAOImpl(DBConnect.getConn());
+			
+			HttpSession session=req.getSession();
+			session.removeAttribute("userobj");//xóa thông tin người dùng cũ
+			String username = req.getParameter("username");
+			String password = req.getParameter("password");
+			
+			if("admin@gmail.com".equals(username)&& "admin".equals(password)) {
+				User us=new User();
+				session.setAttribute("userobj",us);
+				resp.sendRedirect("admin/home.jsp");
+			}else {
+				
+				User us=dao.login(username, password);
+				if (us!=null) {
+					session.setAttribute("userobj",us);
+					session.setAttribute("user_id", us.getId());
+					resp.sendRedirect("home.jsp");
+				}
+				else {
+					session.setAttribute("failMsg","Tên đăng nhập hoặc mật khẩu không đúng");
+					resp.sendRedirect("login.jsp");
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Lấy thông tin đăng nhập từ form
-        String email = request.getParameter("username");
-        String password = request.getParameter("password");
-
-        HttpSession session = request.getSession();
-
-        try {
-            // Tạo đối tượng UserDAO để kiểm tra thông tin đăng nhập
-            UserDAO dao = new UserDAOIpml(DBConnect.getConn());
-            User user = dao.login(email, password);
-
-            if (user != null) {
-                // Đăng nhập thành công
-                session.setAttribute("userobj", user);
-                session.setAttribute("successMsg", "Đăng nhập thành công! Bạn sẽ được chuyển hướng sau 3 giây.");
-                response.sendRedirect("login.jsp");  // Chuyển hướng về login.jsp để hiển thị thông báo
-            } else {
-                // Đăng nhập thất bại
-                session.setAttribute("errorMsg", "Tài khoản hoặc mật khẩu không chính xác");
-                response.sendRedirect("login.jsp");  // Chuyển hướng về trang đăng nhập với thông báo lỗi
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            session.setAttribute("errorMsg", "Có lỗi xảy ra trong quá trình đăng nhập.");
-            response.sendRedirect("login.jsp");
-        }
-    }
 }

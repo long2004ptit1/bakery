@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.DAO.UserDAO;
-import com.DAO.UserDAOIpml;
+import com.DAO.UserDAOImpl;
 import com.DB.DBConnect;
 import com.entity.User;
 
@@ -35,12 +35,12 @@ public class RegisterServlet extends HttpServlet {
         // Tạo đối tượng người dùng
         User user = new User();
         user.setName(name);
-        user.setEmail(username); // Giả sử username là email, tùy chỉnh nếu cần
-        user.setPhno(phone);
+        user.setUserName(username); // Giả sử username là email, tùy chỉnh nếu cần
+        user.setPhone(phone);
         user.setPassword(password);
 
         try {
-            UserDAO dao = new UserDAOIpml(DBConnect.getConn());
+            UserDAO dao = new UserDAOImpl(DBConnect.getConn());
             boolean userRegistered = dao.userRegister(user);
 
             if (userRegistered) {
