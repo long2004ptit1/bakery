@@ -154,7 +154,7 @@ ul {
     font-weight: 500;
     color: var(--text-color);
     padding: 0.5rem 1rem;
-    text-decoration: none; /* Bỏ gạch chân */
+    text-decoration: none ; /* Bỏ gạch chân */
 }
 
 .navbar a:hover {

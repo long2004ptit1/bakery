@@ -1,11 +1,22 @@
 package com.entity;
 
+import java.sql.Timestamp;
+
 public class User {
 	private int id;
 	private String name;
 	private String userName;
 	private String phone;
 	private String password;
+	private Timestamp createdAt;
+	
+	
+	public Timestamp getCreatedAt() {
+		return createdAt;
+	}
+	public void setCreatedAt(Timestamp createdAt) {
+		this.createdAt = createdAt;
+	}
 	public int getId() {
 		return id;
 	}
