@@ -41,7 +41,6 @@ public class CategoryAdd extends HttpServlet {
 				return;
 			}
 
-			// Nếu mã danh mục không tồn tại, tiếp tục thêm
 			Category category = new Category(id, name, description, fileName, null, null);
 			boolean f = dao.addCategory(category);
 
