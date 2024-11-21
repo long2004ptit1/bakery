@@ -127,11 +127,11 @@ a {
 		<div class="bx bx-menu" id="menu-icon"></div>
 		<!-- Nav List -->
 		<ul class="navbar">
-			<li><a href="home.jsp#home" class="home-active">Trang chủ</a></li>
-			<li><a href="home.jsp#categories">Danh mục</a></li>
-			<li><a href="home.jsp#products">Sản phẩm</a></li>
-			<li><a href="home.jsp#about">Chúng tôi</a></li>
-			<li><a href="home.jsp#customers">Khách hàng</a></li>
+			<li><a href="home.jsp#home" class="home-active">DS NHÂN VIÊN</a></li>
+			<li><a href="user_list.jsp">DS KHÁCH HÀNG</a></li>
+			<li><a href="home.jsp#products">SẢN PHẨM</a></li>
+			<li><a href="home.jsp#about">ĐƠN HÀNG</a></li>
+			<li><a href="home.jsp#customers">HỖ TRỢ KH</a></li>
 		</ul>
 
 		<%-- Kiểm tra nếu người dùng đã đăng nhập --%>
@@ -150,7 +150,6 @@ a {
                     <a href="orders.jsp">Đơn hàng của tôi</a>
                 </div>
             </li>
-
 
 				</ul>
 				<div class="logout-container">

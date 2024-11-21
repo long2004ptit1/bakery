@@ -18,8 +18,8 @@ h2 {
 }
 
 .history-table {
-	margin-top: 20px;
-	margin-left: 30px;
+	margin-top: 100px;
+	margin-left: 50px;
 }
 
 .history-table table {
