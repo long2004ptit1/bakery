@@ -32,7 +32,7 @@
 	<classpathentry kind="lib" path="/Users/huynguyen/apache-tomcat-9.0.95/lib/jsp-api.jar"/>
 	<classpathentry kind="lib" path="/Users/huynguyen/apache-tomcat-9.0.95/lib/mysql-connector-j-9.1.0.jar"/>
 	<classpathentry kind="lib" path="/Users/huynguyen/apache-tomcat-9.0.95/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="/Users/huynguyen/Downloads/jstl-1.2.jar"/>
 	<classpathentry kind="lib" path="/Users/huynguyen/Downloads/Standard 1.1.2.jar"/>
+	<classpathentry kind="lib" path="/Users/huynguyen/Downloads/jstl-1.2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -106,7 +106,7 @@
                 <td><%= (staff.getCreatedAt() != null) ? sdf.format(staff.getCreatedAt()) : "N/A" %></td>
                 <td>
                     <a href="edit_staff.jsp?id=<%= staff.getId() %>" class="btn-edit">Chỉnh sửa</a>
-                    <a href="delete_staff.jsp?id=<%= staff.getId() %>" class="btn-edit">Xoá</a>
+                    <a href="delete_staff.jsp?id=<%= staff.getId() %>" class="btn-delete" onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a>
                 </td>
             </tr>
             <% } %>

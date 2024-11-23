@@ -98,18 +98,7 @@ public class StaffDAOImpl implements StaffDAO {
         }
     }
 
-    @Override
-    public boolean deleteStaffById(int id) {
-        String sql = "DELETE FROM staff WHERE id = ?";
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, id);
-            return stmt.executeUpdate() > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
+    
     @Override
     public boolean isPhoneExists(String phone) {
         String sql = "SELECT COUNT(*) FROM staff WHERE phone = ?";
@@ -125,4 +114,23 @@ public class StaffDAOImpl implements StaffDAO {
         }
         return false;
     }
+    
+    @Override
+    public boolean deleteStaff(int id) {
+        String sql = "DELETE FROM staff WHERE id = ?";
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            return ps.executeUpdate() > 0; // Trả về true nếu số hàng bị xóa > 0
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    
+    
+    
+    
+    
 }
+

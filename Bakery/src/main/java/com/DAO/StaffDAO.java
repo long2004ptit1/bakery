@@ -10,12 +10,12 @@ public interface StaffDAO {
 
     // Lấy thông tin nhân viên theo ID
     Staff getStaffById(int id);
+    
+ // Xóa nhân viên theo ID
+    boolean deleteStaff(int id);
 
     // Cập nhật thông tin nhân viên
     boolean updateStaff(Staff staff);
-
-    // Xóa nhân viên theo ID
-    boolean deleteStaffById(int id);
 
     // Kiểm tra số điện thoại đã tồn tại
     boolean isPhoneExists(String phone);
