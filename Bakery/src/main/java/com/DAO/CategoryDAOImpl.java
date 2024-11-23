@@ -58,11 +58,27 @@ public class CategoryDAOImpl implements CategoryDAO {
 	     return exists;
 	 }
 
-	@Override
-	public boolean updateCategory(Category category) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	 @Override
+	 public boolean updateCategory(Category category) {
+	     boolean isUpdated = false;
+	     try {
+	         String sql = "UPDATE category SET name = ?, thumbnail = ?, description = ?, updated_at = NOW() WHERE id = ?";
+	         PreparedStatement ps = conn.prepareStatement(sql);
+	         ps.setString(1, category.getName());
+	         ps.setString(2, category.getThumbnail());
+	         ps.setString(3, category.getDescription());
+	         ps.setString(4, category.getId());
+
+	         int rows = ps.executeUpdate();
+	         if (rows > 0) {
+	             isUpdated = true;
+	         }
+	     } catch (Exception e) {
+	         e.printStackTrace();
+	     }
+	     return isUpdated;
+	 }
+
 
 	@Override
 	public boolean deleteCategory(String id) {
@@ -72,9 +88,28 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	@Override
 	public Category getCategoryById(String id) {
-		// TODO Auto-generated method stub
-		return null;
+	    Category category = null;
+	    try {
+	        String sql = "SELECT * FROM category WHERE id = ?";
+	        PreparedStatement ps = conn.prepareStatement(sql);
+	        ps.setString(1, id);
+	        ResultSet rs = ps.executeQuery();
+
+	        if (rs.next()) {
+	            category = new Category();
+	            category.setId(rs.getString("id"));
+	            category.setName(rs.getString("name"));
+	            category.setThumbnail(rs.getString("thumbnail"));
+	            category.setDescription(rs.getString("description"));
+	            category.setCreatedAt(rs.getTimestamp("created_at"));
+	            category.setUpdatedAt(rs.getTimestamp("updated_at"));
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return category;
 	}
+
 
 	@Override
 	public List<Category> getAllCategories() {

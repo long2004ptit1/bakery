@@ -137,7 +137,7 @@ tfoot .button {
 					<td>Hình ảnh</td>
 					<td>Thời gian tạo</td>
 					<td>Thời gian cập nhật</td>
-					<td><a href="" class="button btn-approve">Chỉnh sửa</a> <a
+					<td><a href="update_category.jsp" class="button btn-approve">Chỉnh sửa</a> <a
 						href="javascript:void(0);" class="button btn-reject"<%-- onclick="confirmDelete('deleteUser.jsp?id=<%= user.getId() %>') --%>">Xóa</a>
 					</td>
 
@@ -149,7 +149,7 @@ tfoot .button {
 			<tfoot>
 				<tr>
 					<td colspan="11" style="text-align: center;"><a
-						href="add_product.jsp" class="button btn-approve"
+						href="add_category.jsp" class="button btn-approve"
 						style="font-size: 16px; padding: 10px 20px;">Thêm danh mục</a></td>
 				</tr>
 			</tfoot>
