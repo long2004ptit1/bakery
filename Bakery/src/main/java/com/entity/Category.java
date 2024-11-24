@@ -56,6 +56,8 @@ public class Category {
 		this.updatedAt = updatedAt;
 	}
 
-	
+	public Category() {
+	}
+
 	
 }
