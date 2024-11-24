@@ -19,20 +19,26 @@ public class StaffDAOImpl implements StaffDAO {
     public boolean addStaff(Staff staff) {
         boolean isAdded = false;
         String sql = "INSERT INTO staff (name, phone, role) VALUES (?, ?, ?)";
-
-        try (Connection conn = DBConnect.getConn();
+        try (Connection conn = DBConnect.getConn(); 
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, staff.getName());
             pstmt.setString(2, staff.getPhone());
             pstmt.setString(3, staff.getRole());
             int rows = pstmt.executeUpdate();
-            isAdded = rows > 0;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            isAdded = rows > 0; // Kiểm tra nếu số dòng thêm vào > 0
+            if (rows > 0) {
+                System.out.println("Thêm nhân viên thành công!");
+            } else {
+                System.out.println("Thêm nhân viên thất bại!");
+            }
 
+        } catch (SQLException e) {
+            e.printStackTrace(); // In lỗi ra console để debug
+        }
         return isAdded;
+        
     }
+
 
 
     @Override
